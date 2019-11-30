@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:src="@drawable/five"
+        android:layout_width="100dp"
+        android:layout_height="80dp" />
+
+    <Button
+        android:id="@+id/openPButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/movePButton"
+        android:layout_marginRight="100dp"
+        android:layout_below="@+id/addPButton"
+        android:layout_marginTop="3dp"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Open"
+        android:textColor="#0099CC" />
+
+    <Button
+        android:id="@+id/movePButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Move"
+        android:textColor="#0099CC" />
+
+    <Button
+        android:id="@+id/deletePButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/movePButton"
+        android:layout_marginTop="3dp"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Delete"
+        android:textColor="#0099CC" />
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/albumText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Album Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/openButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/editButton"
+        android:layout_marginRight="100dp"
+        android:layout_below="@+id/addButton"
+        android:layout_marginTop="3dp"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Open"
+        android:textColor="#0099CC" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Edit"
+        android:textColor="#0099CC" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editButton"
+        android:layout_marginTop="3dp"
+        android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Delete"
+        android:textColor="#0099CC" />
+
+</RelativeLayout>

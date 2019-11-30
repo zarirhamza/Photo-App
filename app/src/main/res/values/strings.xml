@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">androidApp31</string>
+    <string name="title_activity_list_view">ListView</string>
+    <string name="title_activity_photo_list_view">PhotoListView</string>
+    <string name="title_activity_photomain">photomain</string>
+    <string name="title_activity_display_photo">displayPhoto</string>
+</resources>
