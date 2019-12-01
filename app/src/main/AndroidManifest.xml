@@ -13,9 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SearchListView"
+            android:label="@string/title_activity_search_list_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".searchPhoto"
+            android:label="@string/title_activity_search_photo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".displayPhoto"
             android:label="@string/title_activity_display_photo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".photomain"
             android:parentActivityName=".MainActivity" />

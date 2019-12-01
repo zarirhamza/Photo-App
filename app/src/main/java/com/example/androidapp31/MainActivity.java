@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
             is.close();
             fis.close();
         } catch (IOException e) {
+            albumList = new ArrayList<Album>();
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            albumList = new ArrayList<Album>();
             e.printStackTrace();
         }
         /*albumList = new ArrayList<Album>();
@@ -80,8 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Search button Clicked!!!",
-                        Toast.LENGTH_LONG).show();
+
+                Intent mIntent = new Intent(MainActivity.this,searchPhoto.class);
+                MainActivity.this.startActivity(mIntent);
+                finish();
             }
         });
 

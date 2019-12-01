@@ -4,4 +4,6 @@
     <string name="title_activity_photo_list_view">PhotoListView</string>
     <string name="title_activity_photomain">photomain</string>
     <string name="title_activity_display_photo">displayPhoto</string>
+    <string name="title_activity_search_photo">searchPhoto</string>
+    <string name="title_activity_search_list_view">SearchListView</string>
 </resources>

@@ -6,12 +6,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,21 +17,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CustomPhotoAdapter extends ArrayAdapter<Photo> {
     private ArrayList<Photo> photoSet;
@@ -69,7 +57,7 @@ public class CustomPhotoAdapter extends ArrayAdapter<Photo> {
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
             row = inflater.inflate(R.layout.activity_photo_list_view, parent, false);
             holder = new ViewHolder();
-            holder.thumbnail = (ImageView) row.findViewById(R.id.thumbnail);
+            holder.thumbnail = (ImageView) row.findViewById(R.id.searchThumbNail);
             holder.delButton = (Button) row.findViewById(R.id.deletePButton);
             holder.openButton = (Button) row.findViewById(R.id.openPButton);
             holder.moveButton = (Button) row.findViewById(R.id.movePButton);

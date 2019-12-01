@@ -6,7 +6,7 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/thumbnail"
+        android:id="@+id/searchThumbNail"
         android:src="@drawable/five"
         android:layout_width="100dp"
         android:layout_height="80dp" />

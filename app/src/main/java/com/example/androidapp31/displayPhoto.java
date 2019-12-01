@@ -1,6 +1,5 @@
 package com.example.androidapp31;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,9 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,9 +20,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,8 +28,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
 
 public class displayPhoto extends AppCompatActivity {
     public int state;
@@ -49,6 +40,8 @@ public class displayPhoto extends AppCompatActivity {
     ArrayList<Photo> photoList;
 
     Bitmap bmImg, bMapScaled;
+
+    Photo displayedPhoto;
 
     //ListIterator<Photo> pIter;
 
@@ -70,29 +63,76 @@ public class displayPhoto extends AppCompatActivity {
         }
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarS);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         state = getIntent().getExtras().getInt("state");
-        photoNum = getIntent().getExtras().getInt("photo");
 
         fileText = (TextView) findViewById(R.id.fileText);
         locationText = (TextView) findViewById(R.id.locationTag);
         peopleText = (TextView) findViewById(R.id.peopleTag);
         imgView = (ImageView) findViewById(R.id.imgView);
 
-        initForm(state, photoNum);
-
         Button preButton = (Button)findViewById(R.id.prevButton);
         Button nextButton = (Button)findViewById(R.id.nextButton);
         Button locButton = (Button)findViewById(R.id.addLocation);
         Button pplButton = (Button)findViewById(R.id.addPeople);
 
+        if(state > -1) {
+            photoNum = getIntent().getExtras().getInt("photo");
+            initForm(state, photoNum);
+            ArrayList<Photo> photos = albumList.get(state).getPhotos();
+        }
+        else {
+            //get tags
+            //get tags
+            // get location
+            // set image view and tags
 
-        ArrayList<Photo> photos = albumList.get(state).getPhotos();
+            Photo thisPhoto = new Photo(getIntent().getExtras().getString("location"));
+            thisPhoto.locationTags = getIntent().getExtras().getStringArrayList("locationTags") ;
+            thisPhoto.personTags = getIntent().getExtras().getStringArrayList("peopleTags");
+
+            File imgFile =  new File(thisPhoto.getLocation());
+            fileText.setText(imgFile.getName());
+            if(imgFile.exists()) { //imageview
+                bmImg = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                bMapScaled = Bitmap.createScaledBitmap(bmImg, 400, 300, true);
+                imgView.setImageBitmap(bMapScaled);
+            }
+            else {
+                Drawable myDrawable = getApplicationContext().getDrawable(R.drawable.one);
+            }
+
+            String locationT = ""; //location tags
+            for(String s: thisPhoto.getLocationTags()){
+                locationT  = locationT + s + " // ";
+            }
+            locationText.setText("Location = " + locationT);
+
+            String peopleT = ""; //people tags
+            for(String s: thisPhoto.getPersonTags()){
+                peopleT  = peopleT + s + " // ";
+            }
+            peopleText.setText("People = " + peopleT);
+
+
+
+
+
+
+            preButton.setEnabled(false);
+            preButton.setClickable(false);
+            nextButton.setEnabled(false);
+            nextButton.setClickable(false);
+            locButton.setEnabled(false);
+            locButton.setClickable(false);
+            pplButton.setEnabled(false);
+            pplButton.setClickable(false);
+        }
 
         preButton.setOnClickListener(new View.OnClickListener() {
             @Override
